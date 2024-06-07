@@ -68,7 +68,7 @@ public class Main {
         customerService.getAllCustomers().forEach(System.out::println);
 
         // İçerisinde 'C' harfi olan müşterileri listele
-        System.out.println("\nİçerisinde 'C' harfi olan Müşteriler:");
+        System.out.println("\nAdında 'C' harfi olan Müşteriler:");
         customerService.getCustomersWithNameContaining('C').forEach(System.out::println);
 
         // Haziran ayında kayıt olan müşterilerin faturalarının toplam tutarını listele
@@ -81,24 +81,24 @@ public class Main {
         System.out.println(totalInvoiceAmountInJune);
 
         // Sistemdeki tüm faturaları listele
-        System.out.println("\nSistemdeki Tüm Faturalar:");
+        System.out.println("\nTüm Faturalar:");
         invoiceService.getAllInvoices().forEach(System.out::println);
 
         // Sistemdeki 1500TL üstündeki faturaları listele
-        System.out.println("\n1500TL üstündeki Faturalar:");
+        System.out.println("\n1500TL üzerindeki faturalar:");
         invoiceService.getInvoicesAboveAmount(1500).forEach(System.out::println);
 
         // Sistemdeki 1500TL üstündeki faturaların ortalamasını hesapla
-        System.out.println("\n1500TL üstündeki Faturaların Ortalaması:");
+        System.out.println("\n1500TL üzerindeki faturaların ortalaması:");
         double averageInvoiceAbove1500 = invoiceService.getAverageOfInvoicesAboveAmount(1500);
         System.out.println(averageInvoiceAbove1500);
 
         // Sistemdeki 500TL altındaki faturalara sahip müşterilerin isimlerini listele
-        System.out.println("\n500TL altındaki Faturalara Sahip Müşterilerin İsimleri:");
+        System.out.println("\n500TL altındaki faturalara sahip müşterilerin isimleri:");
         invoiceService.getCustomerNamesWithInvoicesBelowAmount(500, customerService.getAllCustomers()).forEach(System.out::println);
 
         // Haziran ayının faturalarının ortalaması 750TL altı olan firmaların hangi sektörde olduğunu listele
-        System.out.println("\nHaziran ayının faturalarının ortalaması 750TL altı olan firmaların sektörü:");
+        System.out.println("\nHaziran ayının, fatura ortalaması 750TL altı olan firmaların sektörü:");
         customerService.getCustomersRegisteredInMonth(Calendar.JUNE).stream()
                 .filter(customer -> {
                     double averageInvoice = customer.getOrders().stream()
